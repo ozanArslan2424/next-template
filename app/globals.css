@@ -2,32 +2,76 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@layer base {
+    :root {
+        --white: 0 0% 100%;
+        --black: 0 0% 0%;
+        --green: 160 84.1% 39.4%;
+        --red: 0 85% 60%;
+        --blue: 229 78% 60%;
+        --yellow: 44 100% 50%;
+
+        --border: 214.3 31.8% 91.4%;
+        --ring: var(--info);
+
+        --background: 0 0% 100%;
+        --foreground: 222.2 84% 4.9%;
+
+        --primary: 222.2 47.4% 11.2%;
+        --secondary: 210 40% 96.1%;
+        --accent: 184 95% 50%;
+        --muted: 210 40% 96.1%;
+        --info: 229 78% 60%;
+        --success: 160 84.1% 39.4%;
+        --danger: 0 84.2% 60.2%;
+
+        --primary-foreground: 210 40% 98%;
+        --secondary-foreground: 222.2 47.4% 11.2%;
+        --accent-foreground: var(--black);
+        --muted-foreground: 215.4 16.3% 46.9%;
+        --info-foreground: var(--white);
+        --success-foreground: var(--white);
+        --danger-foreground: 210 40% 98%;
+
+        --radius: 0.5rem;
+    }
+
+    .dark {
+        --border: 217.2 32.6% 17.5%;
+        --ring: var(--info);
+
+        --background: 222.2 84% 4.9%;
+        --foreground: 210 40% 98%;
+
+        --primary: 210 40% 95%;
+        --secondary: 217.2 32.6% 17.5%;
+        --accent: 184 95% 60%;
+        --muted: 217.2 32.6% 17.5%;
+        --info: 229 78% 65%;
+        --success: 160 84.1% 32%;
+        --danger: 0 62.8% 30.6%;
+
+        --primary-foreground: 222.2 47.4% 11.2%;
+        --secondary-foreground: 210 40% 98%;
+        --accent-foreground: var(--black);
+        --muted-foreground: 215 20.2% 65.1%;
+        --info-foreground: var(--white);
+        --success-foreground: var(--white);
+        --danger-foreground: 210 40% 98%;
+    }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+        font-feature-settings:
+            "rlig" 1,
+            "calt" 1;
+    }
+    hr {
+        @apply border-muted;
+    }
 }
