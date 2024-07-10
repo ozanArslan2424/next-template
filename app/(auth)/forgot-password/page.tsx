@@ -1,7 +1,7 @@
 import Button from "@/components/ui/button";
 import Input from "@/components/ui/input";
 import { H1 } from "@/components/ui/typography";
-import { forgotPassword } from "../actions";
+import { forgotPassword } from "@/lib/auth/actions";
 
 export default function Page() {
     return (
