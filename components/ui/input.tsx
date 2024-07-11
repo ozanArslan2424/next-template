@@ -72,6 +72,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
                             name={name}
                             id={id}
                             ref={ref}
+                            onChange={onChange}
                             {...props}
                         />
                         {type === "password" ? (
